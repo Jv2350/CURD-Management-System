@@ -5,7 +5,7 @@ function Datatable() {
   const [records, setRecords] = useState([]);
 
   const fetchRecords = async () => {
-    const res = await axios.get('http://localhost:5000/api/records');
+    const res = await axios.get("http://localhost:5000/api/records");
     setRecords(res.data);
   };
 
@@ -35,7 +35,12 @@ function Datatable() {
             <td className="py-2">{record.email}</td>
             <td className="py-2">{record.role}</td>
             <td className="py-2 space-x-2">
-              <button className="bg-red-500 text-white px-2 py-1" onClick={() => deleteRecord(record._id)}>Delete</button>
+              <button
+                className="bg-red-500 text-white px-2 py-1"
+                onClick={() => deleteRecord(record._id)}
+              >
+                Delete
+              </button>
             </td>
           </tr>
         ))}

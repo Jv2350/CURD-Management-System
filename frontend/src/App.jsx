@@ -1,11 +1,17 @@
-import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import ManageRecords from "./pages/ManageRecords";
 
 function App() {
   return (
-    <div>
-      <h1 className="text-center font-bold text-4xl">CURD</h1>
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/records" element={<ManageRecords />} />
+      </Routes>
+    </Router>
   );
 }
-
 export default App;
