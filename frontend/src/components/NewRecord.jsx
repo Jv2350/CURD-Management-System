@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+const RENDER_URL = import.meta.env.VITE_RENDER_BACKEND_URL;
 
 function NewRecord({ refreshRecords }) {
   const [formData, setFormData] = useState({ name: "", email: "", role: "" });
@@ -10,7 +11,7 @@ function NewRecord({ refreshRecords }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:5000/api/records", formData);
+    await axios.post(`${RENDER_URL}api/records`, formData);
     setFormData({ name: "", email: "", role: "" });
     refreshRecords();
   };
